@@ -1,178 +1,193 @@
-// Carousel Functionality
-document.querySelectorAll('.carousel-container').forEach(container => {
-  const track = container.querySelector('.carousel-track');
-  let slides = Array.from(track.children);
-  const prevButton = container.querySelector('.carousel-button.prev');
-  const nextButton = container.querySelector('.carousel-button.next');
+// Misty Villas - renders the page from data.json so rates and photos
+// can be edited from the CMS without touching code.
 
-  const visibleSlides = 3;
-  let currentIndex = visibleSlides;
+const RUPEE = '₹';
 
-  // Clone slides for infinite scroll, retain video controls
-  const cloneBefore = slides.slice(-visibleSlides).map(slide => {
-    const clone = slide.cloneNode(true);
-    const video = clone.querySelector('video');
-    if (video) video.setAttribute('controls', 'true');
-    return clone;
-  });
-
-  const cloneAfter = slides.slice(0, visibleSlides).map(slide => {
-    const clone = slide.cloneNode(true);
-    const video = clone.querySelector('video');
-    if (video) video.setAttribute('controls', 'true');
-    return clone;
-  });
-
-  cloneBefore.forEach(clone => track.prepend(clone));
-  cloneAfter.forEach(clone => track.append(clone));
-
-  slides = Array.from(track.children);
-
-  function updateCarousel(instant = false) {
-    const slideWidth = slides[0].getBoundingClientRect().width;
-    track.style.transition = instant ? 'none' : 'transform 0.5s ease-in-out';
-    track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
-  }
-
-  function nextSlide() {
-    currentIndex++;
-    updateCarousel();
-
-    if (currentIndex >= slides.length - visibleSlides) {
-      setTimeout(() => {
-        currentIndex = visibleSlides;
-        updateCarousel(true);
-      }, 500);
-    }
-  }
-
-  function prevSlide() {
-    currentIndex--;
-    updateCarousel();
-
-    if (currentIndex < visibleSlides) {
-      setTimeout(() => {
-        currentIndex = slides.length - visibleSlides * 2;
-        updateCarousel(true);
-      }, 500);
-    }
-  }
-
-  // Button events
-  nextButton.addEventListener('click', nextSlide);
-  prevButton.addEventListener('click', prevSlide);
-  window.addEventListener('resize', () => updateCarousel(true));
-
-  // Swipe support
-  let startX = 0;
-  let isSwiping = false;
-
-  track.addEventListener('touchstart', (e) => {
-    startX = e.touches[0].clientX;
-    isSwiping = true;
-  });
-
-  track.addEventListener('touchend', (e) => {
-    if (!isSwiping) return;
-    const endX = e.changedTouches[0].clientX;
-    const diff = endX - startX;
-
-    if (Math.abs(diff) > 50) {
-      diff > 0 ? prevSlide() : nextSlide();
-    }
-    isSwiping = false;
-  });
-
-  updateCarousel(true); // Initial setup
-});
-
-// LIGHTBOX
-// Lightbox functionality
-const carouselImages = document.querySelectorAll('.carousel-slide img, .carousel-slide video'); // Assuming images are inside carousel-slide
-const lightboxModal = document.getElementById('lightbox-modal');
-const lightboxImg = document.getElementById('lightbox-image');
-const lightboxCaption = document.getElementById('lightbox-caption');
-const closeBtn = document.querySelector('.lightbox-close');
-const prevBtn = document.querySelector('.lightbox-nav.prev');
-const nextBtn = document.querySelector('.lightbox-nav.next');
-
-let currentLightboxIndex = 0;
-
-function showLightbox(index) {
-  const image = carouselImages[index];
-  lightboxImg.src = image.src;
-  lightboxImg.alt = image.alt;
-  lightboxCaption.textContent = image.alt;
-  lightboxModal.classList.remove('hidden');
-  currentLightboxIndex = index;
+function el(tag, className, text) {
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  if (text !== undefined) node.textContent = text;
+  return node;
 }
 
-// Event listeners for opening the lightbox when clicking on carousel images
-carouselImages.forEach((img, index) => {
-  img.addEventListener('click', () => showLightbox(index));
-});
+function formatPrice(n) {
+  return RUPEE + Number(n).toLocaleString('en-IN');
+}
 
-// Close button
-closeBtn.addEventListener('click', () => {
-  lightboxModal.classList.add('hidden');
-});
+// ---------- Lightbox ----------
+const lightbox = document.getElementById('lightbox');
+const lbImage = document.getElementById('lb-image');
+const lbCaption = document.getElementById('lb-caption');
+let lbPhotos = [];
+let lbIndex = 0;
 
-// Arrow navigation for lightbox
-prevBtn.addEventListener('click', () => {
-  currentLightboxIndex = (currentLightboxIndex - 1 + carouselImages.length) % carouselImages.length;
-  showLightbox(currentLightboxIndex);
-});
+function openLightbox(photos, index) {
+  lbPhotos = photos;
+  showLightbox(index);
+  lightbox.hidden = false;
+  document.body.style.overflow = 'hidden';
+}
 
-nextBtn.addEventListener('click', () => {
-  currentLightboxIndex = (currentLightboxIndex + 1) % carouselImages.length;
-  showLightbox(currentLightboxIndex);
-});
+function showLightbox(index) {
+  lbIndex = (index + lbPhotos.length) % lbPhotos.length;
+  const p = lbPhotos[lbIndex];
+  lbImage.src = p.image;
+  lbImage.alt = p.alt || '';
+  lbCaption.textContent = p.alt || '';
+}
 
-// Keyboard navigation for lightbox
+function closeLightbox() {
+  lightbox.hidden = true;
+  document.body.style.overflow = '';
+}
+
+lightbox.querySelector('.lb-close').addEventListener('click', closeLightbox);
+lightbox.querySelector('.lb-prev').addEventListener('click', () => showLightbox(lbIndex - 1));
+lightbox.querySelector('.lb-next').addEventListener('click', () => showLightbox(lbIndex + 1));
+lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
 document.addEventListener('keydown', (e) => {
-  if (lightboxModal.classList.contains('hidden')) return;
-  if (e.key === 'Escape') lightboxModal.classList.add('hidden');
-  if (e.key === 'ArrowRight') nextBtn.click();
-  if (e.key === 'ArrowLeft') prevBtn.click();
+  if (lightbox.hidden) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowRight') showLightbox(lbIndex + 1);
+  if (e.key === 'ArrowLeft') showLightbox(lbIndex - 1);
 });
 
-// Swipe support for lightbox image
-let lightboxStartX = 0;
-let lightboxEndX = 0;
+let lbTouchX = null;
+lbImage.addEventListener('touchstart', (e) => { lbTouchX = e.touches[0].clientX; }, { passive: true });
+lbImage.addEventListener('touchend', (e) => {
+  if (lbTouchX === null) return;
+  const diff = e.changedTouches[0].clientX - lbTouchX;
+  if (Math.abs(diff) > 50) showLightbox(lbIndex + (diff < 0 ? 1 : -1));
+  lbTouchX = null;
+}, { passive: true });
 
-lightboxImg.addEventListener('touchstart', (e) => {
-  lightboxStartX = e.touches[0].clientX;
-});
+// ---------- Carousel ----------
+function buildCarousel(photos, defaultAlt) {
+  const wrap = el('div', 'carousel');
+  const track = el('div', 'carousel-track');
+  const all = photos.map(p => ({ image: p.image, alt: p.alt || defaultAlt }));
 
-lightboxImg.addEventListener('touchmove', (e) => {
-  lightboxEndX = e.touches[0].clientX;
-});
+  all.forEach((p, i) => {
+    const slide = el('div', 'slide');
+    const img = document.createElement('img');
+    img.src = p.image;
+    img.alt = p.alt;
+    img.width = 1200;
+    img.height = 900;
+    if (i > 0) img.loading = 'lazy';
+    img.addEventListener('click', () => openLightbox(all, i));
+    slide.appendChild(img);
+    track.appendChild(slide);
+  });
 
-lightboxImg.addEventListener('touchend', () => {
-  const swipeDiff = lightboxStartX - lightboxEndX;
+  const prev = el('button', 'car-btn car-prev', '❮');
+  prev.type = 'button';
+  prev.setAttribute('aria-label', 'Previous photo');
+  const next = el('button', 'car-btn car-next', '❯');
+  next.type = 'button';
+  next.setAttribute('aria-label', 'Next photo');
+  const count = el('span', 'car-count', `1 / ${all.length}`);
 
-  if (Math.abs(swipeDiff) > 50) { // 50px threshold
-    if (swipeDiff > 0) {
-      nextBtn.click(); // Swipe left → next image
-    } else {
-      prevBtn.click(); // Swipe right → previous image
-    }
+  const step = (dir) => track.scrollBy({ left: dir * track.clientWidth, behavior: 'smooth' });
+  prev.addEventListener('click', () => step(-1));
+  next.addEventListener('click', () => step(1));
+  track.addEventListener('scroll', () => {
+    const i = Math.round(track.scrollLeft / track.clientWidth) + 1;
+    count.textContent = `${Math.min(i, all.length)} / ${all.length}`;
+  }, { passive: true });
+
+  wrap.append(track, prev, next, count);
+  return wrap;
+}
+
+// ---------- Sections ----------
+function renderExperiences(list) {
+  const grid = document.getElementById('experiences-grid');
+  list.forEach(item => {
+    const card = el('article', 'card');
+    card.appendChild(buildCarousel(item.photos || [], item.title));
+    const body = el('div', 'card-body');
+    body.append(el('h3', '', item.title), el('p', 'card-text', item.text));
+    card.appendChild(body);
+    grid.appendChild(card);
+  });
+}
+
+function renderRooms(rooms, site) {
+  const grid = document.getElementById('rooms-grid');
+  const extra = site.extra_person_charge;
+  rooms.forEach(room => {
+    const card = el('article', 'card');
+    card.appendChild(buildCarousel(room.photos || [], `${room.name} - ${formatPrice(room.price)} per night`));
+
+    const body = el('div', 'card-body');
+    body.appendChild(el('h3', '', room.name));
+
+    const ul = el('ul', 'features');
+    (room.features || []).forEach(f => ul.appendChild(el('li', '', f)));
+    body.appendChild(ul);
+
+    const info = el('div', 'price-info');
+    const line = el('div', 'price-line');
+    if (room.old_price) line.appendChild(el('s', 'old-price', formatPrice(room.old_price)));
+    line.appendChild(el('span', 'current-price', formatPrice(room.price)));
+    line.appendChild(el('span', 'per-day', ' /day'));
+    info.appendChild(line);
+
+    let paxText = `Maximum ${room.max_guests} guests`;
+    if (extra) paxText += ` + ${formatPrice(extra)} per extra person`;
+    info.appendChild(el('p', 'pax', paxText));
+    body.appendChild(info);
+
+    const cta = el('a', 'btn room-cta', 'Enquire on WhatsApp');
+    const msg = `Hi Misty Villas, I'd like to enquire about the ${room.name}. Dates: `;
+    cta.href = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(msg)}`;
+    cta.target = '_blank';
+    cta.rel = 'noopener';
+    body.appendChild(cta);
+
+    card.appendChild(body);
+    grid.appendChild(card);
+  });
+}
+
+function applySite(site) {
+  const wa = `https://wa.me/${site.whatsapp}`;
+  const setHref = (id, href) => { const n = document.getElementById(id); if (n) n.href = href; };
+  const setText = (id, text) => { const n = document.getElementById(id); if (n && text) n.textContent = text; };
+
+  setText('hero-tagline', site.tagline);
+  setText('contact-phone1', site.phone_primary_display);
+  setText('contact-person', site.contact_person);
+  setText('contact-instagram-handle', site.instagram_handle);
+
+  if (site.phone_secondary_display) setText('contact-phone2', site.phone_secondary_display);
+  else document.getElementById('contact-phone2-wrap').hidden = true;
+
+  ['hero-whatsapp', 'contact-whatsapp', 'bar-whatsapp'].forEach(id => setHref(id, wa));
+  ['contact-call', 'bar-call'].forEach(id => setHref(id, `tel:${site.phone_primary}`));
+  setHref('contact-instagram', site.instagram_url);
+
+  if (site.hero_image) document.getElementById('hero-image').src = site.hero_image;
+
+  if (site.notice) {
+    const n = document.getElementById('notice');
+    n.textContent = site.notice;
+    n.hidden = false;
   }
+}
 
-  // Reset values
-  lightboxStartX = 0;
-  lightboxEndX = 0;
-});
+document.getElementById('year').textContent = new Date().getFullYear();
 
-// Optional: stops vertical scroll during swipe
-lightboxImg.addEventListener('touchmove', (e) => {
-  lightboxEndX = e.touches[0].clientX;
-  e.preventDefault(); 
-}, { passive: false });
-
-// Close lightbox when clicking on background (modal)
-lightboxModal.addEventListener('click', (e) => {
-  if (e.target === lightboxModal) {
-    lightboxModal.classList.add('hidden');
-  }
-});
+fetch('data.json', { cache: 'no-cache' })
+  .then(r => { if (!r.ok) throw new Error('data.json ' + r.status); return r.json(); })
+  .then(data => {
+    applySite(data.site || {});
+    renderExperiences(data.experiences || []);
+    renderRooms(data.rooms || [], data.site || {});
+  })
+  .catch(err => {
+    console.error(err);
+    const grid = document.getElementById('rooms-grid');
+    grid.appendChild(el('p', 'card-text', 'Please call (+91) 70128 90166 for rooms and rates.'));
+  });
