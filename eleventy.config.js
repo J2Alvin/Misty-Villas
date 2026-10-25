@@ -20,6 +20,13 @@ module.exports = function (eleventyConfig) {
     if (data.draft) return false;
   });
 
+  // When hosted under a sub-path (github.io/Misty-Villas/), prefix root-relative links.
+  const prefix = (process.env.PATH_PREFIX || "").replace(/\/$/, "");
+  eleventyConfig.addTransform("pathPrefix", function (content) {
+    if (!prefix || !(this.page.outputPath || "").endsWith(".html")) return content;
+    return content.replace(/(href|src)="\/(?!\/)/g, `$1="${prefix}/`);
+  });
+
   eleventyConfig.addFilter("dateDisplay", (d) =>
     new Date(d).toLocaleDateString("en-IN", { year: "numeric", month: "long", day: "numeric" })
   );

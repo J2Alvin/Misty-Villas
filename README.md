@@ -15,10 +15,11 @@ New pages and travel guides are Markdown files built with Eleventy into `_site/`
 Pages are not in the top menu. Link them by pasting the address (for example
 `/about/`) in another page, WhatsApp or Instagram.
 
-## Deploy (Cloudflare Pages, free)
-- Production branch: `main`
-- Build command: `npm run build`
-- Build output directory: `_site`
+## Deploy (GitHub Pages, free)
+- Repo Settings > Pages > Source: **GitHub Actions** (one-time).
+- Every push to `main` (including CMS saves) runs `.github/workflows/deploy.yml`, builds with Eleventy and publishes.
+- Check progress under the repo's **Actions** tab.
+- Once `mistyvillas.in` points at GitHub Pages, delete the `PATH_PREFIX` line in the workflow.
 
 ## Preview locally
 `npm install`, then `npm start`.
