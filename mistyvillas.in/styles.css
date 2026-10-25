@@ -42,7 +42,7 @@ a { color: inherit; }
 .navbar-logo { height: 46px; width: auto; }
 .navbar-items { display: flex; align-items: center; gap: 1rem; font-size: 0.95rem; font-weight: 500; }
 .navbar-items a { text-decoration: none; padding: 0.4rem 0.2rem; }
-.navbar-items a:not(.nav-cta) { display: none; }
+.navbar-items a:not(.nav-cta):not(.nav-always) { display: none; }
 .nav-cta {
   background: var(--cream); border: 1px solid var(--brisque);
   border-radius: 8px; padding: 0.4rem 1rem !important;
@@ -185,7 +185,7 @@ a { color: inherit; }
 @media (min-width: 700px) {
   body { padding-bottom: 0; }
   .mobile-bar { display: none; }
-  .navbar-items a:not(.nav-cta) { display: inline; }
+  .navbar-items a:not(.nav-cta):not(.nav-always) { display: inline; }
   .navbar-items { gap: 1.5rem; }
   .card-grid { grid-template-columns: repeat(2, 1fr); }
   .contact-grid { grid-template-columns: repeat(3, 1fr); }
