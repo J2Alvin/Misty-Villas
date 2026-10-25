@@ -56,15 +56,4 @@ spots:
       - image: /images/valajanam waterfalls.png
         alt: Valajam Waterfalls
 resort_promo: true
-reviews_title: What our guests say
-reviews:
-  - link: https://www.instagram.com/reel/DQZN-AhimvT/?utm_source=ig_web_copy_link&exln=MWQ1ZGUxMzBkMA==&srtk=MWQ1ZGUxMzBkMA==
-    thumbnail: /images/Misty Testimonial Cover.jpg
-    caption: Another Happy Traveler
-  - link: https://www.instagram.com/reel/DVdC6LeCj2M/?utm_source=ig_web_copy_link&psln=MWQ1ZGUxMzBkMA==&srtk=MWQ1ZGUxMzBkMA==
-    thumbnail: /images/Misty Testimonial Video.jpg
-    caption: Love from outside India!
-  - link: https://www.instagram.com/reel/DQoxIFRCn2T/?utm_source=ig_web_copy_link&cplk=MWQ1ZGUxMzBkMA==&srtk=MWQ1ZGUxMzBkMA==
-    thumbnail: /images/testimonial3.png
-    caption: Another amazing review!
 ---

@@ -1,0 +1,18 @@
+{# Shared testimonials block. Uses `tItems` and `tTitle`, set by the page that includes it. #}
+{% if tItems and tItems.length %}
+<section id="testimonials" class="section reviews">
+  <h2 class="section-title">{{ tTitle or "What our guests say" }}</h2>
+  <div class="review-grid">
+    {% for r in tItems %}
+    <a class="review-card" href="{{ r.link }}" target="_blank" rel="noopener">
+      <span class="review-thumb">
+        {% if r.thumbnail %}<img src="{{ r.thumbnail | urlSafe }}" alt="{{ r.caption or 'Guest video on Instagram' }}" loading="lazy" width="600" height="800">{% endif %}
+        <span class="play" aria-hidden="true">&#9654;</span>
+      </span>
+      <span class="review-caption">{{ r.caption or "Watch on Instagram" }}</span>
+      <span class="review-source">Watch on Instagram</span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}

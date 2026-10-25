@@ -89,23 +89,9 @@ layout: base.njk
     </section>
     {% endif %}
 
-    {% if reviews and reviews.length %}
-    <section class="reviews">
-      <h2 class="section-title">{{ reviews_title or "What our guests say" }}</h2>
-      <div class="review-grid">
-        {% for r in reviews %}
-        <a class="review-card" href="{{ r.link }}" target="_blank" rel="noopener">
-          <span class="review-thumb">
-            {% if r.thumbnail %}<img src="{{ r.thumbnail }}" alt="{{ r.caption or 'Guest video on Instagram' }}" loading="lazy" width="600" height="800">{% endif %}
-            <span class="play" aria-hidden="true">&#9654;</span>
-          </span>
-          <span class="review-caption">{{ r.caption or "Watch on Instagram" }}</span>
-          <span class="review-source">Watch on Instagram</span>
-        </a>
-        {% endfor %}
-      </div>
-    </section>
-    {% endif %}
+    {% set tItems = reviews if (reviews and reviews.length) else testimonials.items %}
+    {% set tTitle = reviews_title if (reviews and reviews.length) else testimonials.title %}
+    {% include "testimonials.njk" %}
 
     <div class="page-cta">
       <a class="btn btn-whatsapp" href="https://wa.me/{{ site.whatsapp }}" target="_blank" rel="noopener">Plan your stay on WhatsApp</a>

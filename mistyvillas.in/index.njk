@@ -31,7 +31,7 @@ permalink: /
     </ul>
   </section>
 
-  <section id="experiences" class="section">
+  <section id="amenities" class="section">
     <h2 class="section-title">Experiences <span class="cursive">&amp;</span> Comforts</h2>
     <div class="card-grid">
       {% for item in experiences %}
@@ -96,6 +96,10 @@ permalink: /
     <p class="rates-note">Rates are per room per night{% if site.extra_person_charge %}; each extra person is {{ site.extra_person_charge | rupee }}{% endif %}. Please call or WhatsApp to confirm availability.</p>
   </section>
 
+  {% set tItems = testimonials.items %}
+  {% set tTitle = testimonials.title %}
+  {% include "testimonials.njk" %}
+
   {% if collections.guides and collections.guides.length %}
   <section id="guides" class="section">
     <h2 class="section-title">Travel <span class="cursive">Guide</span></h2>
@@ -113,18 +117,6 @@ permalink: /
     <p class="rates-note"><a href="/guides/">See all travel guides</a></p>
   </section>
   {% endif %}
-
-  <section id="faq" class="section faq">
-    <h2 class="section-title">Frequently Asked <span class="cursive">Questions</span></h2>
-    <div class="faq-list">
-      {% for f in faqItems %}
-      <details>
-        <summary>{{ f.q }}</summary>
-        <p>{{ f.a }}</p>
-      </details>
-      {% endfor %}
-    </div>
-  </section>
 
   <section id="contact" class="section">
     <h2 class="section-title">Contact Us</h2>
@@ -152,6 +144,18 @@ permalink: /
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3934.617633322065!2d76.96074297353479!3d9.541909780752508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0872a63e1aa6c3%3A0x88d1bb4897947b0e!2sMisty%20Villas%20Panchalimedu!5e0!3m2!1sen!2sin!4v1747027129417!5m2!1sen!2sin"
         title="Location of Misty Villas on Google Maps" class="map" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+
+  <section id="faq" class="section faq">
+    <h2 class="section-title">Frequently Asked <span class="cursive">Questions</span></h2>
+    <div class="faq-list">
+      {% for f in faqItems %}
+      <details>
+        <summary>{{ f.q }}</summary>
+        <p>{{ f.a }}</p>
+      </details>
+      {% endfor %}
     </div>
   </section>
 </main>

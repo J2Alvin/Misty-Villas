@@ -67,6 +67,20 @@ content:
               - { name: image, label: Photo, type: image }
               - { name: alt, label: Short description of photo, type: string }
 
+      - name: testimonials
+        label: Testimonials (shown on homepage and, by default, on every guide)
+        type: object
+        fields:
+          - { name: title, label: Section title, type: string }
+          - name: items
+            label: Instagram videos
+            type: object
+            list: true
+            fields:
+              - { name: link, label: Instagram video link, type: string }
+              - { name: thumbnail, label: Video thumbnail (upload a screenshot/cover), type: image }
+              - { name: caption, label: Caption, type: string }
+
       - name: amenities
         label: Facilities list (pool, BBQ...)
         type: string
@@ -130,9 +144,9 @@ content:
               - { name: image, label: Photo, type: image }
               - { name: alt, label: Short description of photo, type: string }
       - { name: resort_promo, label: Add the "Misty Villas" promo block as the last spot, type: boolean, default: true }
-      - { name: reviews_title, label: Reviews section title, type: string }
+      - { name: reviews_title, label: Own reviews title (optional, overrides shared testimonials), type: string }
       - name: reviews
-        label: Reviews (Instagram videos)
+        label: Own reviews for this guide (optional - leave empty to use the shared testimonials)
         type: object
         list: true
         fields:

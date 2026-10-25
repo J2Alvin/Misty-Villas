@@ -120,6 +120,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addGlobalData("site", () => readData().site);
   eleventyConfig.addGlobalData("rooms", () => readData().rooms || []);
   eleventyConfig.addGlobalData("experiences", () => readData().experiences || []);
+  eleventyConfig.addGlobalData("testimonials", () => readData().testimonials || { items: [] });
   eleventyConfig.addGlobalData("amenities", () => readData().amenities || []);
   eleventyConfig.addGlobalData("faqItems", () => buildFaq(readData()));
   eleventyConfig.addGlobalData("homeSchemaJson", () => {
