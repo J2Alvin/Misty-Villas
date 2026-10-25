@@ -20,7 +20,7 @@
   <link href="/images/misty_logo_favicon.png" rel="apple-touch-icon">
   <meta property="og:title" content="{{ title }}">
   <meta property="og:description" content="{{ description or 'Hilltop resort in Panchalimedu, Kerala' }}">
-  <meta property="og:image" content="https://mistyvillas.in{{ image or '/images/og-share.jpg' }}">
+  <meta property="og:image" content="https://mistyvillas.in{{ (image or '/images/og-share.jpg') | replace(' ', '%20') }}">
   <meta property="og:url" content="https://mistyvillas.in{{ page.url }}">
   <meta property="og:type" content="{{ 'article' if layout == 'guide.njk' else 'website' }}">
   <link rel="stylesheet" href="/styles.css">
