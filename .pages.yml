@@ -1,0 +1,66 @@
+# Pages CMS config (https://pagescms.org) - lets you edit the site from a web UI.
+# Sign in at pagescms.org with GitHub, pick this repo and branch, and edit.
+
+media:
+  input: mistyvillas.in/images
+  output: /images
+
+content:
+  - name: site
+    label: Site & contact details
+    type: file
+    path: mistyvillas.in/data.json
+    format: json
+    fields:
+      - name: site
+        label: Site details
+        type: object
+        fields:
+          - { name: name, label: Business name, type: string }
+          - { name: tagline, label: Homepage tagline, type: string }
+          - { name: hero_image, label: Homepage banner photo, type: image }
+          - { name: notice, label: Top banner message (leave empty to hide), type: string }
+          - { name: phone_primary, label: Primary phone (+91...), type: string }
+          - { name: phone_primary_display, label: Primary phone (how it shows), type: string }
+          - { name: phone_secondary, label: Secondary phone (+91...), type: string }
+          - { name: phone_secondary_display, label: Secondary phone (how it shows), type: string }
+          - { name: whatsapp, label: WhatsApp number (91XXXXXXXXXX, no +), type: string }
+          - { name: contact_person, label: Contact person, type: string }
+          - { name: instagram_url, label: Instagram link, type: string }
+          - { name: instagram_handle, label: Instagram handle, type: string }
+          - { name: extra_person_charge, label: Extra person charge (Rs), type: number }
+
+      - name: rooms
+        label: Rooms & rates
+        type: object
+        list: true
+        fields:
+          - { name: name, label: Room name, type: string }
+          - { name: old_price, label: Old (strikethrough) price, type: number }
+          - { name: price, label: Current price per night, type: number }
+          - { name: max_guests, label: Max guests included, type: number }
+          - name: features
+            label: Features
+            type: string
+            list: true
+          - name: photos
+            label: Photos
+            type: object
+            list: true
+            fields:
+              - { name: image, label: Photo, type: image }
+
+      - name: experiences
+        label: Experience sections (hilltop, food, nearby)
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: text, label: Description, type: text }
+          - name: photos
+            label: Photos
+            type: object
+            list: true
+            fields:
+              - { name: image, label: Photo, type: image }
+              - { name: alt, label: Short description of photo, type: string }
