@@ -26,3 +26,8 @@ Pages are not in the top menu. Link them by pasting the address (for example
 
 ## Photos
 Upload through the CMS. Aim for under ~300 KB and about 1200px wide (WebP or JPG).
+
+## SEO and AI visibility
+- The homepage is built as plain HTML (rooms, rates, FAQ, about text), so search engines and AI tools can read it.
+- Edit rates, about text, facilities and FAQ in Pages CMS under "Site & contact details". Rate and booking answers in the FAQ, the rates table, structured data and `llms.txt` all update automatically.
+- Generated on every build: `sitemap.xml`, `robots.txt`, `llms.txt`.

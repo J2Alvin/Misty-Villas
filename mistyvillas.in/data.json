@@ -12,64 +12,183 @@
     "contact_person": "Joyce Mathew (Manager)",
     "instagram_url": "https://www.instagram.com/misty_villas_panchalimedu/",
     "instagram_handle": "@misty_villas_panchalimedu",
-    "extra_person_charge": 699
+    "extra_person_charge": 699,
+    "about": "Misty Villas is a family-run hilltop resort in Panchalimedu, near Kuttikanam in Idukki district, Kerala. Set high in the hills with an average temperature of around 15°C, it offers spacious rooms with balconies and mountain views, veg and non-veg meals, a swimming pool, BBQ and campfire. Nearby you can visit Parunthumpara viewpoint, Valanjanganam Waterfalls, Vagamon Pine Forest and Sita Devi Lake.",
+    "address": "Panchalimedu Hills, Kuttikanam, Idukki, Kerala 685532"
   },
   "experiences": [
     {
       "title": "Beautiful Hilltop Location",
       "text": "Located on top of the Panchalimedu Hills, Misty Villas is surrounded by nature. With average temperatures of 15°C you can enjoy the amazing mountain view right from your room.",
       "photos": [
-        { "image": "images/outdoor_view_4.webp", "alt": "Balcony view of the cloudy mountains" },
-        { "image": "images/sunset.webp", "alt": "Sunset seen from room balcony" },
-        { "image": "images/outdoor_view_5.webp", "alt": "Terrace view of the cold hills" },
-        { "image": "images/outdoor_view_1.webp", "alt": "Resort entrance" },
-        { "image": "images/outdoor_view_2.webp", "alt": "Window view of the hills from inside the room" },
-        { "image": "images/outdoor_view_13.webp", "alt": "View of clouds from the balcony" },
-        { "image": "images/outdoor_view_14.webp", "alt": "Cloudy hills viewed from the campus" },
-        { "image": "images/outdoor_view_6.webp", "alt": "Balcony and window view of mountains" },
-        { "image": "images/outdoor_view_7.webp", "alt": "Lush green garden and flowers" },
-        { "image": "images/outdoor_view_8.webp", "alt": "Outdoor view" },
-        { "image": "images/outdoor_view_9.webp", "alt": "Balcony view from our rooms" },
-        { "image": "images/outdoor_view_10.webp", "alt": "Terrace and balcony view" },
-        { "image": "images/outdoor_view_11.webp", "alt": "Pool and outdoor area" },
-        { "image": "images/outdoor_view_17.webp", "alt": "Garden and flowers outside" },
-        { "image": "images/outdoor_view_15.webp", "alt": "Terrace view" },
-        { "image": "images/outdoor_view_20.webp", "alt": "Terrace view" },
-        { "image": "images/outdoor_view_21.webp", "alt": "Terrace view" },
-        { "image": "images/outdoor_view_22.webp", "alt": "Terrace view" },
-        { "image": "images/outdoor_view_23.webp", "alt": "Terrace view" },
-        { "image": "images/outdoor_view_24.webp", "alt": "Terrace view" }
+        {
+          "image": "images/outdoor_view_4.webp",
+          "alt": "Balcony view of the cloudy mountains"
+        },
+        {
+          "image": "images/sunset.webp",
+          "alt": "Sunset seen from room balcony"
+        },
+        {
+          "image": "images/outdoor_view_5.webp",
+          "alt": "Terrace view of the cold hills"
+        },
+        {
+          "image": "images/outdoor_view_1.webp",
+          "alt": "Resort entrance"
+        },
+        {
+          "image": "images/outdoor_view_2.webp",
+          "alt": "Window view of the hills from inside the room"
+        },
+        {
+          "image": "images/outdoor_view_13.webp",
+          "alt": "View of clouds from the balcony"
+        },
+        {
+          "image": "images/outdoor_view_14.webp",
+          "alt": "Cloudy hills viewed from the campus"
+        },
+        {
+          "image": "images/outdoor_view_6.webp",
+          "alt": "Balcony and window view of mountains"
+        },
+        {
+          "image": "images/outdoor_view_7.webp",
+          "alt": "Lush green garden and flowers"
+        },
+        {
+          "image": "images/outdoor_view_8.webp",
+          "alt": "Outdoor view"
+        },
+        {
+          "image": "images/outdoor_view_9.webp",
+          "alt": "Balcony view from our rooms"
+        },
+        {
+          "image": "images/outdoor_view_10.webp",
+          "alt": "Terrace and balcony view"
+        },
+        {
+          "image": "images/outdoor_view_11.webp",
+          "alt": "Pool and outdoor area"
+        },
+        {
+          "image": "images/outdoor_view_17.webp",
+          "alt": "Garden and flowers outside"
+        },
+        {
+          "image": "images/outdoor_view_15.webp",
+          "alt": "Terrace view"
+        },
+        {
+          "image": "images/outdoor_view_20.webp",
+          "alt": "Terrace view"
+        },
+        {
+          "image": "images/outdoor_view_21.webp",
+          "alt": "Terrace view"
+        },
+        {
+          "image": "images/outdoor_view_22.webp",
+          "alt": "Terrace view"
+        },
+        {
+          "image": "images/outdoor_view_23.webp",
+          "alt": "Terrace view"
+        },
+        {
+          "image": "images/outdoor_view_24.webp",
+          "alt": "Terrace view"
+        }
       ]
     },
     {
       "title": "BBQ, Campfire & More",
       "text": "Enjoy delicious BBQ, campfire and hearty Veg & Non-Veg meals for breakfast, lunch and dinner. Take a refreshing dip in our swimming pool surrounded by the cold climate of the hills.",
       "photos": [
-        { "image": "images/food_1.webp", "alt": "Veg and non-veg food options" },
-        { "image": "images/pool_1.webp", "alt": "Swimming pool at night" },
-        { "image": "images/food_2.webp", "alt": "Dining area" },
-        { "image": "images/food_3.webp", "alt": "Food court" },
-        { "image": "images/campfire_group_1.webp", "alt": "Barbeque and campfire at night" },
-        { "image": "images/outdoor_view_3.webp", "alt": "Tea and coffee enjoyed with the view outdoors" },
-        { "image": "images/pool_2.webp", "alt": "Swimming pool in the morning" },
-        { "image": "images/DINING1.webp", "alt": "Dining" },
-        { "image": "images/DINING2.webp", "alt": "Dining" },
-        { "image": "images/DINING3.webp", "alt": "Dining" },
-        { "image": "images/DINING4.webp", "alt": "Dining" }
+        {
+          "image": "images/food_1.webp",
+          "alt": "Veg and non-veg food options"
+        },
+        {
+          "image": "images/pool_1.webp",
+          "alt": "Swimming pool at night"
+        },
+        {
+          "image": "images/food_2.webp",
+          "alt": "Dining area"
+        },
+        {
+          "image": "images/food_3.webp",
+          "alt": "Food court"
+        },
+        {
+          "image": "images/campfire_group_1.webp",
+          "alt": "Barbeque and campfire at night"
+        },
+        {
+          "image": "images/outdoor_view_3.webp",
+          "alt": "Tea and coffee enjoyed with the view outdoors"
+        },
+        {
+          "image": "images/pool_2.webp",
+          "alt": "Swimming pool in the morning"
+        },
+        {
+          "image": "images/DINING1.webp",
+          "alt": "Dining"
+        },
+        {
+          "image": "images/DINING2.webp",
+          "alt": "Dining"
+        },
+        {
+          "image": "images/DINING3.webp",
+          "alt": "Dining"
+        },
+        {
+          "image": "images/DINING4.webp",
+          "alt": "Dining"
+        }
       ]
     },
     {
       "title": "Nearby Scenic Spots",
       "text": "Our resort is very close to Parunthumpara viewpoint, Valanjanganam Waterfalls, Vagamon Pine Forest, Sita Devi Lake and more.",
       "photos": [
-        { "image": "images/parunthumpara.webp", "alt": "Parunthumpara viewpoint" },
-        { "image": "images/parunthumpara-near-peerumade.webp", "alt": "Parunthumpara viewpoint near Peerumade" },
-        { "image": "images/pine_forest.webp", "alt": "Vagamon pine forest" },
-        { "image": "images/pine_forest_2.webp", "alt": "Vagamon pine forest" },
-        { "image": "images/sita_devi_lake.webp", "alt": "Sita Devi Lake, Idukki" },
-        { "image": "images/nearby1.webp", "alt": "Outdoor night view" },
-        { "image": "images/nearby2.webp", "alt": "Outdoor view" },
-        { "image": "images/nearby3.webp", "alt": "Outdoor night view" }
+        {
+          "image": "images/parunthumpara.webp",
+          "alt": "Parunthumpara viewpoint"
+        },
+        {
+          "image": "images/parunthumpara-near-peerumade.webp",
+          "alt": "Parunthumpara viewpoint near Peerumade"
+        },
+        {
+          "image": "images/pine_forest.webp",
+          "alt": "Vagamon pine forest"
+        },
+        {
+          "image": "images/pine_forest_2.webp",
+          "alt": "Vagamon pine forest"
+        },
+        {
+          "image": "images/sita_devi_lake.webp",
+          "alt": "Sita Devi Lake, Idukki"
+        },
+        {
+          "image": "images/nearby1.webp",
+          "alt": "Outdoor night view"
+        },
+        {
+          "image": "images/nearby2.webp",
+          "alt": "Outdoor view"
+        },
+        {
+          "image": "images/nearby3.webp",
+          "alt": "Outdoor night view"
+        }
       ]
     }
   ],
@@ -88,12 +207,24 @@
         "Access to outdoor seating and common areas"
       ],
       "photos": [
-        { "image": "images/rooms/premium_room_1.webp" },
-        { "image": "images/rooms/premium_room_2.webp" },
-        { "image": "images/rooms/premium_room_3.webp" },
-        { "image": "images/rooms/premium_room_4.webp" },
-        { "image": "images/rooms/premium_room_5.webp" },
-        { "image": "images/rooms/premium_room_6.webp" }
+        {
+          "image": "images/rooms/premium_room_1.webp"
+        },
+        {
+          "image": "images/rooms/premium_room_2.webp"
+        },
+        {
+          "image": "images/rooms/premium_room_3.webp"
+        },
+        {
+          "image": "images/rooms/premium_room_4.webp"
+        },
+        {
+          "image": "images/rooms/premium_room_5.webp"
+        },
+        {
+          "image": "images/rooms/premium_room_6.webp"
+        }
       ]
     },
     {
@@ -108,13 +239,27 @@
         "Complimentary breakfast"
       ],
       "photos": [
-        { "image": "images/rooms/deluxe_room_1.webp" },
-        { "image": "images/rooms/deluxe_room_2.webp" },
-        { "image": "images/rooms/deluxe_room_3.webp" },
-        { "image": "images/rooms/deluxe_room_5.webp" },
-        { "image": "images/rooms/deluxe_room_6.webp" },
-        { "image": "images/rooms/deluxe_room_11.webp" },
-        { "image": "images/rooms/deluxe_room_12.webp" }
+        {
+          "image": "images/rooms/deluxe_room_1.webp"
+        },
+        {
+          "image": "images/rooms/deluxe_room_2.webp"
+        },
+        {
+          "image": "images/rooms/deluxe_room_3.webp"
+        },
+        {
+          "image": "images/rooms/deluxe_room_5.webp"
+        },
+        {
+          "image": "images/rooms/deluxe_room_6.webp"
+        },
+        {
+          "image": "images/rooms/deluxe_room_11.webp"
+        },
+        {
+          "image": "images/rooms/deluxe_room_12.webp"
+        }
       ]
     },
     {
@@ -132,14 +277,54 @@
         "Can accommodate 6 adults"
       ],
       "photos": [
-        { "image": "images/rooms/standard_room_1.webp" },
-        { "image": "images/rooms/standard_room_2.webp" },
-        { "image": "images/rooms/standard_room_3.webp" },
-        { "image": "images/rooms/standard_room_4.webp" },
-        { "image": "images/rooms/standard_room_5.webp" },
-        { "image": "images/rooms/standard_room_6.webp" },
-        { "image": "images/rooms/standard_room_7.webp" }
+        {
+          "image": "images/rooms/standard_room_1.webp"
+        },
+        {
+          "image": "images/rooms/standard_room_2.webp"
+        },
+        {
+          "image": "images/rooms/standard_room_3.webp"
+        },
+        {
+          "image": "images/rooms/standard_room_4.webp"
+        },
+        {
+          "image": "images/rooms/standard_room_5.webp"
+        },
+        {
+          "image": "images/rooms/standard_room_6.webp"
+        },
+        {
+          "image": "images/rooms/standard_room_7.webp"
+        }
       ]
+    }
+  ],
+  "amenities": [
+    "Swimming pool",
+    "BBQ",
+    "Campfire",
+    "Veg and non-veg meals (breakfast, lunch, dinner)",
+    "Rooms with balconies and mountain views",
+    "Pets allowed"
+  ],
+  "faq": [
+    {
+      "q": "Where is Misty Villas located?",
+      "a": "Misty Villas is on the Panchalimedu Hills near Kuttikanam in Idukki district, Kerala (PIN 685532). It is close to Parunthumpara viewpoint, Valanjanganam Waterfalls, Vagamon Pine Forest and Sita Devi Lake."
+    },
+    {
+      "q": "What facilities does the resort offer?",
+      "a": "A swimming pool, BBQ, campfire, and veg and non-veg meals for breakfast, lunch and dinner. Rooms have balconies with hill views."
+    },
+    {
+      "q": "What is the weather like at Panchalimedu?",
+      "a": "Cool and misty. The average temperature at Misty Villas is around 15°C."
+    },
+    {
+      "q": "Are pets allowed?",
+      "a": "Yes, pets are allowed. Please call or WhatsApp us before you travel to confirm."
     }
   ]
 }

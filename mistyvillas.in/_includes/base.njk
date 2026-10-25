@@ -12,21 +12,32 @@
   </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ title }} | Misty Villas Panchalimedu</title>
+  <title>{{ full_title or (title + " | Misty Villas Panchalimedu") }}</title>
   <meta name="description" content="{{ description or 'Misty Villas Resort in Panchalimedu, Kerala. Hill views, pool, BBQ, campfire and spacious rooms.' }}">
   <link rel="canonical" href="https://mistyvillas.in{{ page.url }}">
   <meta name="theme-color" content="#dde5b6">
   <link href="/images/misty_logo_favicon.png" rel="icon">
   <link href="/images/misty_logo_favicon.png" rel="apple-touch-icon">
-  <meta property="og:title" content="{{ title }}">
+  <meta name="google-site-verification" content="_wSTjp0qLTnY_W1ks-b0EyZI_1F2B2f89Ogg2FWLyEY">
+  <meta property="og:site_name" content="Misty Villas">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:title" content="{{ full_title or title }}">
   <meta property="og:description" content="{{ description or 'Hilltop resort in Panchalimedu, Kerala' }}">
   <meta property="og:image" content="https://mistyvillas.in{{ (image or '/images/og-share.jpg') | replace(' ', '%20') }}">
   <meta property="og:url" content="https://mistyvillas.in{{ page.url }}">
   <meta property="og:type" content="{{ 'article' if layout == 'guide.njk' else 'website' }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ full_title or title }}">
+  <meta name="twitter:description" content="{{ description or 'Hilltop resort in Panchalimedu, Kerala' }}">
+  <meta name="twitter:image" content="https://mistyvillas.in{{ (image or '/images/og-share.jpg') | urlSafe }}">
+  {% if preload_image %}<link rel="preload" as="image" href="{{ preload_image }}" fetchpriority="high">{% endif %}
   <link rel="stylesheet" href="/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com/">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;family=Poppins:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  {% if page.url == "/" %}<script type="application/ld+json">
+{{ homeSchemaJson | safe }}
+  </script>{% endif %}
 </head>
 <body id="top">
 
@@ -45,12 +56,14 @@
   <footer class="footer">
     <p>&copy; <span id="year">2026</span> Misty Villas. All Rights Reserved.</p>
     <p><a href="/">Home</a> &middot; <a href="/guides/">Travel Guide</a></p>
+    <p>Designed by <a id="alvin-joyce" href="https://www.linkedin.com/in/alvinjoyce/" target="_blank" rel="noopener">Alvin Joyce</a></p>
   </footer>
 
   <div class="mobile-bar" role="navigation" aria-label="Quick contact">
     <a class="bar-btn bar-call" href="tel:{{ site.phone_primary }}">Call</a>
     <a class="bar-btn bar-whatsapp" href="https://wa.me/{{ site.whatsapp }}" target="_blank" rel="noopener">WhatsApp</a>
   </div>
+  {% if page.url == "/" %}<script src="/script.js" defer></script>{% endif %}
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

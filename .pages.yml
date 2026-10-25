@@ -29,6 +29,8 @@ content:
           - { name: instagram_url, label: Instagram link, type: string }
           - { name: instagram_handle, label: Instagram handle, type: string }
           - { name: extra_person_charge, label: Extra person charge (Rs), type: number }
+          - { name: about, label: "About text (shown on homepage; used by Google and AI tools)", type: text }
+          - { name: address, label: Address line, type: string }
 
       - name: rooms
         label: Rooms & rates
@@ -64,6 +66,19 @@ content:
             fields:
               - { name: image, label: Photo, type: image }
               - { name: alt, label: Short description of photo, type: string }
+
+      - name: amenities
+        label: Facilities list (pool, BBQ...)
+        type: string
+        list: true
+
+      - name: faq
+        label: Frequently asked questions (rates and booking answers are added automatically)
+        type: object
+        list: true
+        fields:
+          - { name: q, label: Question, type: string }
+          - { name: a, label: Answer, type: text }
 
   - name: pages
     label: New pages (About, FAQ, Gallery...)

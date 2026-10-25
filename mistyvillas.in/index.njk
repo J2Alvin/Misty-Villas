@@ -1,0 +1,167 @@
+---
+layout: base.njk
+full_title: Resort in Panchalimedu, Kerala with Pool, BBQ & Hill Views | Misty Villas
+title: Misty Villas Panchalimedu
+eleventyComputed:
+  description: "Misty Villas is a hilltop resort in Panchalimedu, Kuttikanam, Idukki, Kerala. Spacious rooms with mountain views, pool, BBQ, campfire and good food. Rooms from {{ lowest_price | rupee }} per night."
+preload_image: /images/outdoor_view_13.webp
+image: /images/og-share.jpg
+permalink: /
+---
+{% if site.notice %}<div id="notice" class="notice">{{ site.notice }}</div>{% endif %}
+
+<section class="hero">
+  <img id="hero-image" src="{{ site.hero_image }}" alt="Cloud-covered hills seen from Misty Villas, Panchalimedu" class="hero-img" fetchpriority="high" width="1600" height="900">
+  <div class="hero-text">
+    <h1>Misty Villas</h1>
+    <p id="hero-tagline">{{ site.tagline }}</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#rooms">View Rooms &amp; Rates</a>
+      <a class="btn btn-whatsapp" href="https://wa.me/{{ site.whatsapp }}" target="_blank" rel="noopener">WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+
+<main>
+  <section id="about" class="section about">
+    <h2 class="section-title">About <span class="cursive">Misty Villas</span></h2>
+    <p class="about-text">{{ site.about }}</p>
+    <ul class="amenity-list" aria-label="Facilities">
+      {% for a in amenities %}<li>{{ a }}</li>{% endfor %}
+    </ul>
+  </section>
+
+  <section id="experiences" class="section">
+    <h2 class="section-title">Experiences <span class="cursive">&amp;</span> Comforts</h2>
+    <div class="card-grid">
+      {% for item in experiences %}
+      <article class="card">
+        <div class="carousel">
+          <div class="carousel-track">
+            {% for p in item.photos %}
+            <div class="slide"><img src="{{ p.image }}" alt="{{ p.alt or item.title }}" width="1200" height="900" loading="lazy"></div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="card-body">
+          <h3>{{ item.title }}</h3>
+          <p class="card-text">{{ item.text }}</p>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section id="rooms" class="section">
+    <h2 class="section-title">Rooms <span class="cursive">&amp;</span> Rates</h2>
+    <div class="card-grid">
+      {% for room in rooms %}
+      <article class="card">
+        <div class="carousel">
+          <div class="carousel-track">
+            {% for p in room.photos %}
+            <div class="slide"><img src="{{ p.image }}" alt="{{ p.alt or (room.name + ' at Misty Villas, photo ' + loop.index) }}" width="1200" height="900" loading="lazy"></div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="card-body">
+          <h3>{{ room.name }}</h3>
+          <ul class="features">
+            {% for f in room.features %}<li>{{ f }}</li>{% endfor %}
+          </ul>
+          <div class="price-info">
+            <div class="price-line">
+              {% if room.old_price %}<s class="old-price">{{ room.old_price | rupee }}</s>{% endif %}
+              <span class="current-price">{{ room.price | rupee }}</span><span class="per-day"> /day</span>
+            </div>
+            <p class="pax">Maximum {{ room.max_guests }} guests{% if site.extra_person_charge %} + {{ site.extra_person_charge | rupee }} per extra person{% endif %}</p>
+          </div>
+          <a class="btn room-cta" href="https://wa.me/{{ site.whatsapp }}?text={{ ('Hi Misty Villas, I would like to enquire about the ' + room.name + '. Dates: ') | urlencode }}" target="_blank" rel="noopener">Enquire on WhatsApp</a>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+
+    <h3 class="rates-heading">Rates at a glance</h3>
+    <div class="table-wrap">
+      <table class="rates-table">
+        <thead><tr><th scope="col">Room</th><th scope="col">Per night</th><th scope="col">Guests included</th></tr></thead>
+        <tbody>
+          {% for room in rooms %}
+          <tr><th scope="row">{{ room.name }}</th><td>{{ room.price | rupee }}</td><td>{{ room.max_guests }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <p class="rates-note">Rates are per room per night{% if site.extra_person_charge %}; each extra person is {{ site.extra_person_charge | rupee }}{% endif %}. Please call or WhatsApp to confirm availability.</p>
+  </section>
+
+  {% if collections.guides and collections.guides.length %}
+  <section id="guides" class="section">
+    <h2 class="section-title">Travel <span class="cursive">Guide</span></h2>
+    <div class="card-grid">
+      {% for post in collections.guides | reverse | take(3) %}
+      <a class="card guide-card" href="{{ post.url }}">
+        {% if post.data.image %}<img src="{{ post.data.image }}" alt="{{ post.data.image_alt or post.data.title }}" loading="lazy" width="1200" height="675">{% endif %}
+        <div class="card-body">
+          <h3>{{ post.data.title }}</h3>
+          {% if post.data.description %}<p class="card-text">{{ post.data.description }}</p>{% endif %}
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+    <p class="rates-note"><a href="/guides/">See all travel guides</a></p>
+  </section>
+  {% endif %}
+
+  <section id="faq" class="section faq">
+    <h2 class="section-title">Frequently Asked <span class="cursive">Questions</span></h2>
+    <div class="faq-list">
+      {% for f in faqItems %}
+      <details>
+        <summary>{{ f.q }}</summary>
+        <p>{{ f.a }}</p>
+      </details>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <h2 class="section-title">Contact Us</h2>
+    <address class="contact-grid">
+      <a class="contact-card" href="tel:{{ site.phone_primary }}">
+        <span class="contact-label">Call</span>
+        <span class="contact-value">{{ site.phone_primary_display }}</span>
+        {% if site.phone_secondary_display %}<span class="contact-sub">{{ site.phone_secondary_display }}</span>{% endif %}
+        <span class="contact-sub">{{ site.contact_person }}</span>
+      </a>
+      <a class="contact-card" href="https://wa.me/{{ site.whatsapp }}" target="_blank" rel="noopener">
+        <span class="contact-label">WhatsApp</span>
+        <span class="contact-value">{{ site.phone_primary_display }}</span>
+        <span class="contact-sub">Text or call us on WhatsApp</span>
+      </a>
+      <a class="contact-card" href="{{ site.instagram_url }}" target="_blank" rel="noopener">
+        <span class="contact-label">Instagram</span>
+        <span class="contact-value">{{ site.instagram_handle }}</span>
+        <span class="contact-sub">See recent photos</span>
+      </a>
+    </address>
+    <p class="address-line">{{ site.address }}</p>
+
+    <div class="map-wrap">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3934.617633322065!2d76.96074297353479!3d9.541909780752508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0872a63e1aa6c3%3A0x88d1bb4897947b0e!2sMisty%20Villas%20Panchalimedu!5e0!3m2!1sen!2sin!4v1747027129417!5m2!1sen!2sin"
+        title="Location of Misty Villas on Google Maps" class="map" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+</main>
+
+<div id="lightbox" class="lightbox" hidden aria-modal="true" role="dialog" aria-label="Photo viewer">
+  <button class="lb-close" aria-label="Close">&times;</button>
+  <button class="lb-nav lb-prev" aria-label="Previous photo">&#10094;</button>
+  <figure>
+    <img id="lb-image" src="" alt="">
+    <figcaption id="lb-caption"></figcaption>
+  </figure>
+  <button class="lb-nav lb-next" aria-label="Next photo">&#10095;</button>
+</div>
