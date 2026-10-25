@@ -28,7 +28,8 @@ spots:
 
       This tranquil spot is a must-visit for anyone seeking natural beauty.
     photos:
-      - alt: Visitors on the Parunthumpara hill ridge
+      - image: /images/parunthumpara hill.webp
+        alt: Visitors on the Parunthumpara hill ridge
   - name: Ammachi Kottaram
     text: >-
       Constructed in the 19th century by Travancore Maharaja Moolam Thirunal,
