@@ -100,4 +100,28 @@ content:
       - { name: image, label: Cover photo, type: image }
       - { name: image_alt, label: Cover photo description, type: string }
       - { name: draft, label: Draft (tick to hide from the live site), type: boolean, default: true }
-      - { name: body, label: Guide content, type: rich-text }
+      - name: spots
+        label: Numbered spots (1, 2, 3... each with photos and text)
+        type: object
+        list: true
+        fields:
+          - { name: name, label: Spot name, type: string }
+          - { name: text, label: Text (leave a blank line between paragraphs), type: text }
+          - name: photos
+            label: Photos (1 to 3)
+            type: object
+            list: true
+            fields:
+              - { name: image, label: Photo, type: image }
+              - { name: alt, label: Short description of photo, type: string }
+      - { name: resort_promo, label: Add the "Misty Villas" promo block as the last spot, type: boolean, default: true }
+      - { name: reviews_title, label: Reviews section title, type: string }
+      - name: reviews
+        label: Reviews (Instagram videos)
+        type: object
+        list: true
+        fields:
+          - { name: link, label: Instagram video link, type: string }
+          - { name: thumbnail, label: Video thumbnail (upload a screenshot/cover), type: image }
+          - { name: caption, label: Caption, type: string }
+      - { name: body, label: Intro or extra text (optional), type: rich-text }

@@ -15,6 +15,13 @@ module.exports = function (eleventyConfig) {
     JSON.parse(fs.readFileSync("mistyvillas.in/data.json", "utf8")).site
   );
 
+  // Lowest room price, used by the "Misty Villas" promo block on guides.
+  eleventyConfig.addGlobalData("lowest_price", () => {
+    const rooms = JSON.parse(fs.readFileSync("mistyvillas.in/data.json", "utf8")).rooms || [];
+    const prices = rooms.map((r) => Number(r.price)).filter(Boolean);
+    return prices.length ? Math.min(...prices) : null;
+  });
+
   // Pages marked "Draft" in the CMS are left out of the live build.
   eleventyConfig.addPreprocessor("drafts", "md", (data) => {
     if (data.draft) return false;
@@ -29,6 +36,13 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("dateDisplay", (d) =>
     new Date(d).toLocaleDateString("en-IN", { year: "numeric", month: "long", day: "numeric" })
+  );
+  eleventyConfig.addFilter("monthYear", (d) =>
+    new Date(d).toLocaleDateString("en-IN", { year: "numeric", month: "long" })
+  );
+  eleventyConfig.addFilter("rupee", (n) => "\u20B9" + Number(n).toLocaleString("en-IN"));
+  eleventyConfig.addFilter("paras", (s) =>
+    String(s || "").split(/\n\s*\n/).map((x) => x.trim()).filter(Boolean)
   );
   eleventyConfig.addFilter("dateIso", (d) => new Date(d).toISOString().slice(0, 10));
 

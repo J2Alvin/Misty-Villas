@@ -1,20 +1,85 @@
 ---
 layout: base.njk
 ---
-<main class="page">
+<main class="page guide">
   {% if image %}
-  <div class="page-hero">
-    <img src="{{ image }}" alt="{{ image_alt or title }}" width="1200" height="675">
-  </div>
+  <section class="guide-hero">
+    <img src="{{ image }}" alt="{{ image_alt or title }}" width="1600" height="900" fetchpriority="high">
+    <div class="guide-hero-text">
+      <h1>{{ title }}</h1>
+      {% if date %}<p class="guide-date">{{ date | monthYear }}</p>{% endif %}
+    </div>
+  </section>
   {% endif %}
-  <article class="prose">
+
+  <div class="guide-wrap">
     <p class="crumbs"><a href="/guides/">&larr; All travel guides</a></p>
+    {% if not image %}
     <h1 class="page-title">{{ title }}</h1>
     {% if date %}<p class="post-date">{{ date | dateDisplay }}</p>{% endif %}
-    {{ content | safe }}
+    {% endif %}
+
+    {% if content and (content | trim) %}
+    <div class="prose guide-intro">{{ content | safe }}</div>
+    {% endif %}
+
+    {% for spot in spots %}
+    <section class="spot">
+      <div class="spot-photos spot-photos-{{ spot.photos | length }}">
+        {% for photo in spot.photos %}
+        <img src="{{ photo.image }}" alt="{{ photo.alt or spot.name }}" loading="lazy" width="1200" height="900">
+        {% endfor %}
+      </div>
+      <div class="spot-text">
+        <span class="spot-num">{{ loop.index }}</span>
+        <h2>{{ spot.name }}</h2>
+        {% for para in spot.text | paras %}<p>{{ para }}</p>{% endfor %}
+      </div>
+    </section>
+    {% endfor %}
+
+    {% if resort_promo %}
+    <section class="spot spot-resort">
+      <div class="spot-photos spot-photos-3">
+        <img src="/images/outdoor_view_13.webp" alt="Cloudy hill view from Misty Villas" loading="lazy" width="1200" height="900">
+        <img src="/images/sunset.webp" alt="Sunset from the Misty Villas balcony" loading="lazy" width="1200" height="900">
+        <img src="/images/pool_1.webp" alt="Swimming pool at Misty Villas" loading="lazy" width="1200" height="900">
+      </div>
+      <div class="spot-text">
+        <span class="spot-num">{{ (spots | length) + 1 }}</span>
+        <h2>Misty Villas</h2>
+        <p>The BEST resort to relax and enjoy your stay at Panchalimedu, Kuttikanam.</p>
+        <p><strong>Scenic Rooms + Great Food + Cold Misty Climate = Perfect Relaxing Stay</strong></p>
+        {% if lowest_price %}<p>Book your stay now with rooms starting at <strong>{{ lowest_price | rupee }}</strong>.</p>{% endif %}
+        <div class="spot-actions">
+          <a class="btn btn-whatsapp" href="https://wa.me/{{ site.whatsapp }}" target="_blank" rel="noopener">WhatsApp Us</a>
+          <a class="btn btn-primary" href="/#rooms">View Rooms &amp; Rates</a>
+        </div>
+      </div>
+    </section>
+    {% endif %}
+
+    {% if reviews and reviews.length %}
+    <section class="reviews">
+      <h2 class="section-title">{{ reviews_title or "What our guests say" }}</h2>
+      <div class="review-grid">
+        {% for r in reviews %}
+        <a class="review-card" href="{{ r.link }}" target="_blank" rel="noopener">
+          <span class="review-thumb">
+            {% if r.thumbnail %}<img src="{{ r.thumbnail }}" alt="{{ r.caption or 'Guest video on Instagram' }}" loading="lazy" width="600" height="800">{% endif %}
+            <span class="play" aria-hidden="true">&#9654;</span>
+          </span>
+          <span class="review-caption">{{ r.caption or "Watch on Instagram" }}</span>
+          <span class="review-source">Watch on Instagram</span>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
     <div class="page-cta">
       <a class="btn btn-whatsapp" href="https://wa.me/{{ site.whatsapp }}" target="_blank" rel="noopener">Plan your stay on WhatsApp</a>
       <a class="btn btn-primary" href="/#rooms">View Rooms &amp; Rates</a>
     </div>
-  </article>
+  </div>
 </main>
