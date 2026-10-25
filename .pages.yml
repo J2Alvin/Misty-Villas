@@ -64,3 +64,40 @@ content:
             fields:
               - { name: image, label: Photo, type: image }
               - { name: alt, label: Short description of photo, type: string }
+
+  - name: pages
+    label: New pages (About, FAQ, Gallery...)
+    type: collection
+    path: mistyvillas.in/content/pages
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    view:
+      fields: [title, draft]
+    fields:
+      - { name: title, label: Page title, type: string, required: true }
+      - { name: description, label: Short description for Google (1-2 sentences), type: text }
+      - { name: image, label: Top banner photo (optional), type: image }
+      - { name: image_alt, label: Banner photo description, type: string }
+      - { name: draft, label: Draft (tick to hide from the live site), type: boolean, default: true }
+      - { name: body, label: Page content, type: rich-text }
+
+  - name: guides
+    label: Travel guides / blog
+    type: collection
+    path: mistyvillas.in/content/guides
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    view:
+      fields: [title, date, draft]
+      sort: [date]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - { name: title, label: Guide title, type: string, required: true }
+      - { name: description, label: Short description for Google and the guides list, type: text }
+      - { name: date, label: Publish date, type: date }
+      - { name: image, label: Cover photo, type: image }
+      - { name: image_alt, label: Cover photo description, type: string }
+      - { name: draft, label: Draft (tick to hide from the live site), type: boolean, default: true }
+      - { name: body, label: Guide content, type: rich-text }

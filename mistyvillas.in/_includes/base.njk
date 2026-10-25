@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }} | Misty Villas Panchalimedu</title>
+  <meta name="description" content="{{ description or 'Misty Villas Resort in Panchalimedu, Kerala. Hill views, pool, BBQ, campfire and spacious rooms.' }}">
+  <link rel="canonical" href="https://mistyvillas.in{{ page.url }}">
+  <meta name="theme-color" content="#dde5b6">
+  <link href="/images/misty_logo_favicon.png" rel="icon">
+  <link href="/images/misty_logo_favicon.png" rel="apple-touch-icon">
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ description or 'Hilltop resort in Panchalimedu, Kerala' }}">
+  <meta property="og:image" content="https://mistyvillas.in{{ image or '/images/og-share.jpg' }}">
+  <meta property="og:url" content="https://mistyvillas.in{{ page.url }}">
+  <meta property="og:type" content="{{ 'article' if layout == 'guide.njk' else 'website' }}">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;family=Poppins:wght@400;500;600&amp;display=swap" rel="stylesheet">
+</head>
+<body id="top">
+
+  <header id="navbar">
+    <a href="/" class="brand"><img src="/images/misty_logo.png" class="navbar-logo" alt="Misty Villas logo" width="113" height="58"></a>
+    <nav class="navbar-items" aria-label="Main">
+      <a href="/#experiences">Experiences</a>
+      <a href="/#rooms">Rooms</a>
+      <a href="/#contact" class="nav-cta">Contact</a>
+    </nav>
+  </header>
+
+  {{ content | safe }}
+
+  <footer class="footer">
+    <p>&copy; <span id="year">2026</span> Misty Villas. All Rights Reserved.</p>
+    <p><a href="/">Home</a> &middot; <a href="/guides/">Travel guides</a></p>
+  </footer>
+
+  <div class="mobile-bar" role="navigation" aria-label="Quick contact">
+    <a class="bar-btn bar-call" href="tel:{{ site.phone_primary }}">Call</a>
+    <a class="bar-btn bar-whatsapp" href="https://wa.me/{{ site.whatsapp }}" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

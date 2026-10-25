@@ -1,0 +1,18 @@
+---
+layout: base.njk
+---
+<main class="page">
+  {% if image %}
+  <div class="page-hero">
+    <img src="{{ image }}" alt="{{ image_alt or title }}" width="1200" height="675">
+  </div>
+  {% endif %}
+  <article class="prose">
+    <h1 class="page-title">{{ title }}</h1>
+    {{ content | safe }}
+    <div class="page-cta">
+      <a class="btn btn-whatsapp" href="https://wa.me/{{ site.whatsapp }}" target="_blank" rel="noopener">WhatsApp Us</a>
+      <a class="btn btn-primary" href="/#rooms">View Rooms &amp; Rates</a>
+    </div>
+  </article>
+</main>

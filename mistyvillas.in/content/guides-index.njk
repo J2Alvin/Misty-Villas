@@ -1,0 +1,24 @@
+---
+layout: base.njk
+title: Travel Guides
+description: Travel tips for Panchalimedu, Munnar, Vagamon and Idukki from the team at Misty Villas.
+permalink: /guides/
+---
+<main class="page">
+  <section class="section">
+    <h1 class="section-title">Travel <span class="cursive">Guides</span></h1>
+    <div class="card-grid">
+      {% for post in collections.guides | reverse %}
+      <a class="card guide-card" href="{{ post.url }}">
+        {% if post.data.image %}<img src="{{ post.data.image }}" alt="{{ post.data.image_alt or post.data.title }}" loading="lazy" width="1200" height="675">{% endif %}
+        <div class="card-body">
+          <h3>{{ post.data.title }}</h3>
+          {% if post.data.description %}<p class="card-text">{{ post.data.description }}</p>{% endif %}
+        </div>
+      </a>
+      {% else %}
+      <p class="card-text">New guides coming soon.</p>
+      {% endfor %}
+    </div>
+  </section>
+</main>
