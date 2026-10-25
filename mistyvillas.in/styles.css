@@ -277,3 +277,11 @@ a { color: inherit; }
   .spot-resort { padding: 1.5rem; }
   .review-grid { grid-template-columns: repeat(3, 1fr); }
 }
+
+/* Travel guide list: fixed-height cards (about 30% of the screen height) */
+.guide-card { height: 30svh; min-height: 230px; max-height: 340px; }
+.guide-card img { flex: 1 1 0; min-height: 0; width: 100%; height: auto; aspect-ratio: auto; object-fit: cover; }
+.guide-card .card-body { flex: 0 0 auto; padding: 0.7rem 1rem 0.85rem; gap: 0.25rem; }
+.guide-card:not(:has(img)) .card-body { flex: 1; justify-content: center; }
+.guide-card h3 { font-size: 1.1rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.guide-card .card-text { font-size: 0.85rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
