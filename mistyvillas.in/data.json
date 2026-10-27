@@ -129,8 +129,21 @@
       "price": 2699,
       "max_guests": 2,
       "photos": [
-        {},
-        {}
+        {
+          "image": "/images/rooms/G2/G2_room_2.jpeg"
+        },
+        {
+          "image": "/images/rooms/G2/G2_room_1.jpeg"
+        },
+        {
+          "image": "/images/rooms/G2/G2_room_3.jpeg"
+        },
+        {
+          "image": "/images/rooms/G2/G2_Balcony_2.jpeg"
+        },
+        {
+          "image": "/images/rooms/G2/G2_Balcony_1.jpeg"
+        }
       ]
     }
   ],
