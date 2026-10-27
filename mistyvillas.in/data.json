@@ -3,7 +3,6 @@
     "name": "Misty Villas",
     "tagline": "Best in class Resort in Panchalimedu, Kerala",
     "hero_image": "images/outdoor_view_13.webp",
-    "notice": "",
     "phone_primary": "+917012890166",
     "phone_primary_display": "(+91) 70128 90166",
     "phone_secondary": "+919847102199",
@@ -16,6 +15,125 @@
     "about": "Misty Villas is a family-run hilltop resort in Panchalimedu, near Kuttikanam in Idukki district, Kerala. Set high in the hills with an average temperature of around 15°C, it offers spacious rooms with balconies and mountain views, veg and non-veg meals, a swimming pool, BBQ and campfire. Nearby you can visit Parunthumpara viewpoint, Valanjanganam Waterfalls, Vagamon Pine Forest and Sita Devi Lake.",
     "address": "Panchalimedu Hills, Kuttikanam, Idukki, Kerala 685532"
   },
+  "rooms": [
+    {
+      "name": "Premium Room [F1]",
+      "old_price": 5500,
+      "price": 3999,
+      "max_guests": 2,
+      "features": [
+        "Fully furnished private room with attached bathroom",
+        "Private balcony with hill and sunset views",
+        "TV, kettle, wardrobe, and fan",
+        "Extra mattress on request",
+        "BBQ, campfire, and food available",
+        "Access to outdoor seating and common areas"
+      ],
+      "photos": [
+        {
+          "image": "images/rooms/premium_room_1.webp"
+        },
+        {
+          "image": "images/rooms/premium_room_2.webp"
+        },
+        {
+          "image": "images/rooms/premium_room_3.webp"
+        },
+        {
+          "image": "images/rooms/premium_room_4.webp"
+        },
+        {
+          "image": "images/rooms/premium_room_5.webp"
+        },
+        {
+          "image": "images/rooms/premium_room_6.webp"
+        }
+      ]
+    },
+    {
+      "name": "Deluxe Room [F3]",
+      "old_price": 4500,
+      "price": 2999,
+      "max_guests": 2,
+      "features": [
+        "1 Queen sized bed",
+        "Spacious room",
+        "Balcony",
+        "Complimentary breakfast"
+      ],
+      "photos": [
+        {
+          "image": "images/rooms/deluxe_room_1.webp"
+        },
+        {
+          "image": "images/rooms/deluxe_room_2.webp"
+        },
+        {
+          "image": "images/rooms/deluxe_room_3.webp"
+        },
+        {
+          "image": "images/rooms/deluxe_room_5.webp"
+        },
+        {
+          "image": "images/rooms/deluxe_room_6.webp"
+        },
+        {
+          "image": "images/rooms/deluxe_room_11.webp"
+        },
+        {
+          "image": "images/rooms/deluxe_room_12.webp"
+        }
+      ]
+    },
+    {
+      "name": "Interconnected Deluxe Rooms [G1]",
+      "old_price": 4000,
+      "price": 2599,
+      "max_guests": 2,
+      "features": [
+        "1 King sized bed",
+        "1 Queen sized bed",
+        "1 Single bed",
+        "Spacious room",
+        "Balcony",
+        "Complimentary breakfast",
+        "Can accommodate 6 adults"
+      ],
+      "photos": [
+        {
+          "image": "images/rooms/standard_room_1.webp"
+        },
+        {
+          "image": "images/rooms/standard_room_2.webp"
+        },
+        {
+          "image": "images/rooms/standard_room_3.webp"
+        },
+        {
+          "image": "images/rooms/standard_room_4.webp"
+        },
+        {
+          "image": "images/rooms/standard_room_5.webp"
+        },
+        {
+          "image": "images/rooms/standard_room_6.webp"
+        },
+        {
+          "image": "images/rooms/standard_room_7.webp"
+        }
+      ]
+    },
+    {
+      "name": "Interconnected Deluxe Rooms [G2]",
+      "old_price": 4000,
+      "price": 2699,
+      "max_guests": 2,
+      "photos": [
+        {},
+        {}
+      ]
+    }
+  ],
   "experiences": [
     {
       "title": "Beautiful Hilltop Location",
@@ -188,115 +306,6 @@
         {
           "image": "images/nearby3.webp",
           "alt": "Outdoor night view"
-        }
-      ]
-    }
-  ],
-  "rooms": [
-    {
-      "name": "Premium Room",
-      "old_price": 5500,
-      "price": 3999,
-      "max_guests": 3,
-      "features": [
-        "Fully furnished private room with attached bathroom",
-        "Private balcony with hill and sunset views",
-        "TV, kettle, wardrobe, and fan",
-        "Extra mattress on request",
-        "BBQ, campfire, and food available",
-        "Access to outdoor seating and common areas"
-      ],
-      "photos": [
-        {
-          "image": "images/rooms/premium_room_1.webp"
-        },
-        {
-          "image": "images/rooms/premium_room_2.webp"
-        },
-        {
-          "image": "images/rooms/premium_room_3.webp"
-        },
-        {
-          "image": "images/rooms/premium_room_4.webp"
-        },
-        {
-          "image": "images/rooms/premium_room_5.webp"
-        },
-        {
-          "image": "images/rooms/premium_room_6.webp"
-        }
-      ]
-    },
-    {
-      "name": "Deluxe Room",
-      "old_price": 4500,
-      "price": 2999,
-      "max_guests": 2,
-      "features": [
-        "1 Queen sized bed",
-        "Spacious room",
-        "Balcony",
-        "Complimentary breakfast"
-      ],
-      "photos": [
-        {
-          "image": "images/rooms/deluxe_room_1.webp"
-        },
-        {
-          "image": "images/rooms/deluxe_room_2.webp"
-        },
-        {
-          "image": "images/rooms/deluxe_room_3.webp"
-        },
-        {
-          "image": "images/rooms/deluxe_room_5.webp"
-        },
-        {
-          "image": "images/rooms/deluxe_room_6.webp"
-        },
-        {
-          "image": "images/rooms/deluxe_room_11.webp"
-        },
-        {
-          "image": "images/rooms/deluxe_room_12.webp"
-        }
-      ]
-    },
-    {
-      "name": "Interconnected Deluxe Rooms",
-      "old_price": 4000,
-      "price": 2599,
-      "max_guests": 2,
-      "features": [
-        "1 King sized bed",
-        "1 Queen sized bed",
-        "1 Single bed",
-        "Spacious room",
-        "Balcony",
-        "Complimentary breakfast",
-        "Can accommodate 6 adults"
-      ],
-      "photos": [
-        {
-          "image": "images/rooms/standard_room_1.webp"
-        },
-        {
-          "image": "images/rooms/standard_room_2.webp"
-        },
-        {
-          "image": "images/rooms/standard_room_3.webp"
-        },
-        {
-          "image": "images/rooms/standard_room_4.webp"
-        },
-        {
-          "image": "images/rooms/standard_room_5.webp"
-        },
-        {
-          "image": "images/rooms/standard_room_6.webp"
-        },
-        {
-          "image": "images/rooms/standard_room_7.webp"
         }
       ]
     }
