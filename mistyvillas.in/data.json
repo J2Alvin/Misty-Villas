@@ -145,6 +145,29 @@
           "image": "/images/rooms/G2/G2_Balcony_1.jpeg"
         }
       ]
+    },
+    {
+      "name": "Delxue Couple Room [F2]",
+      "old_price": 4200,
+      "price": 2699,
+      "max_guests": 2,
+      "photos": [
+        {
+          "image": "/images/rooms/F2/F2_room_1.jpeg"
+        },
+        {
+          "image": "/images/rooms/F2/F2_room_2.jpeg"
+        },
+        {
+          "image": "/images/rooms/F2/F2_room_3.jpeg"
+        },
+        {
+          "image": "/images/rooms/F2/F2_room_4.jpeg"
+        },
+        {
+          "image": "/images/rooms/F2/F2_room_balcony.jpeg"
+        }
+      ]
     }
   ],
   "experiences": [
