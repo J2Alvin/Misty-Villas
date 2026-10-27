@@ -168,6 +168,32 @@
           "image": "/images/rooms/F2/F2_room_balcony.jpeg"
         }
       ]
+    },
+    {
+      "name": "Cottage",
+      "old_price": 5500,
+      "price": 3299,
+      "max_guests": 2,
+      "photos": [
+        {
+          "image": "/images/rooms/Cottage/cottage_room_1.jpeg"
+        },
+        {
+          "image": "/images/rooms/Cottage/cottage_room_2.jpeg"
+        },
+        {
+          "image": "/images/rooms/Cottage/cottage_room_3.jpeg"
+        },
+        {
+          "image": "/images/rooms/Cottage/cottage_view_1.jpeg"
+        },
+        {
+          "image": "/images/rooms/Cottage/cottage_view_2.jpeg"
+        },
+        {
+          "image": "/images/rooms/Cottage/cottage_exterior_1.jpeg"
+        }
+      ]
     }
   ],
   "experiences": [
