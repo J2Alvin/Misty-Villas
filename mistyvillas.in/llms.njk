@@ -16,9 +16,8 @@ Instagram: {{ (site.instagram_url) | safe }}
 {% for a in amenities %}- {{ (a) | safe }}
 {% endfor %}
 ## Rooms and rates (per room per night, rupees)
-{% for room in rooms %}- {{ (room.name) | safe }}: {{ (room.price | rupee) | safe }} (up to {{ (room.max_guests) | safe }} guests). {{ (room.features | join("; ")) | safe }}.
-{% endfor %}{% if site.extra_person_charge %}Each extra person: {{ (site.extra_person_charge | rupee) | safe }}.
-{% endif %}Rates can change. Confirm availability by phone or WhatsApp.
+{% for room in rooms %}- {{ (room.name) | safe }}: {{ (room.price | rupee) | safe }} (for {{ (room.max_guests) | safe }} guests{% if room.extra_person_charge or site.extra_person_charge %}, extra person {{ ((room.extra_person_charge or site.extra_person_charge) | rupee) | safe }}{% endif %}). {{ ((room.features or []) | join("; ")) | safe }}.
+{% endfor %}Rates can change. Confirm availability by phone or WhatsApp.
 
 ## Travel guides
 {% for post in collections.guides | reverse %}- [{{ (post.data.title) | safe }}](https://mistyvillas.in{{ (post.url) | safe }}){% if post.data.description %}: {{ (post.data.description) | safe }}{% endif %}
