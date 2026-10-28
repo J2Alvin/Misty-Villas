@@ -13,14 +13,16 @@ function buildFaq(data) {
   const extra = site.extra_person_charge;
   const items = [...(data.faq || [])];
 
-  const roomLines = rooms.map((r) => `${r.name} ${rupee(r.price)} (up to ${r.max_guests} guests)`);
+  const roomLines = rooms.map((r) => {
+    const ex = r.extra_person_charge || extra;
+    return `${r.name} ${rupee(r.price)} (for ${r.max_guests} guests${ex ? `, extra person ${rupee(ex)}` : ""})`;
+  });
   if (roomLines.length) {
     const low = Math.min(...rooms.map((r) => Number(r.price)).filter(Boolean));
     items.splice(1, 0, {
       q: "How much do rooms at Misty Villas cost?",
       a:
         `Rooms start at ${rupee(low)} per night. Current rates per room per night: ${roomLines.join("; ")}.` +
-        (extra ? ` Each extra person is ${rupee(extra)}.` : "") +
         " Please call or WhatsApp to confirm availability.",
     });
   }

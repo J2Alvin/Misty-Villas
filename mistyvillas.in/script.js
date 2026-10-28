@@ -50,6 +50,10 @@
   }
 
   // ---------- Carousels ----------
+  const AUTO_MS = 3000;      // time each photo stays
+  const STAGGER_MS = 700;    // offset between neighbouring boxes
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let autoIndex = 0;
   document.querySelectorAll('.carousel').forEach((carousel) => {
     const track = carousel.querySelector('.carousel-track');
     const imgs = Array.from(track.querySelectorAll('img'));
@@ -85,5 +89,41 @@
     }, { passive: true });
 
     carousel.append(prev, next, count);
+
+    // Auto-advance every AUTO_MS, with each box starting 0.7s after the previous one
+    // so they never all change together. Pauses on hover/touch, when off-screen,
+    // when the tab is hidden or the photo viewer is open. Skipped for reduced motion.
+    if (reduceMotion) return;
+    const slot = autoIndex++;
+    const offset = (slot * STAGGER_MS) % AUTO_MS;
+    let timer = null, delayTimer = null, visible = false, hovering = false, touching = false;
+
+    const advance = () => {
+      if (lightbox && !lightbox.hidden) return;
+      const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+      if (atEnd) track.scrollTo({ left: 0, behavior: 'smooth' });
+      else track.scrollBy({ left: track.clientWidth, behavior: 'smooth' });
+    };
+    const stop = () => { clearTimeout(delayTimer); clearInterval(timer); timer = delayTimer = null; };
+    const start = () => {
+      if (timer || delayTimer || !visible || hovering || touching || document.hidden) return;
+      delayTimer = setTimeout(() => {
+        delayTimer = null;
+        advance();
+        timer = setInterval(advance, AUTO_MS);
+      }, offset);
+    };
+
+    carousel.addEventListener('mouseenter', () => { hovering = true; stop(); });
+    carousel.addEventListener('mouseleave', () => { hovering = false; start(); });
+    carousel.addEventListener('touchstart', () => { touching = true; stop(); }, { passive: true });
+    carousel.addEventListener('touchend', () => { setTimeout(() => { touching = false; start(); }, 4000); }, { passive: true });
+    document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver((entries) => {
+        visible = entries[0].isIntersecting;
+        visible ? start() : stop();
+      }, { threshold: 0.4 }).observe(carousel);
+    } else { visible = true; start(); }
   });
 })();

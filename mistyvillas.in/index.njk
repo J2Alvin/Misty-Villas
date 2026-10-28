@@ -74,7 +74,9 @@ permalink: /
               {% if room.old_price %}<s class="old-price">{{ room.old_price | rupee }}</s>{% endif %}
               <span class="current-price">{{ room.price | rupee }}</span><span class="per-day"> /day</span>
             </div>
-            <p class="pax">Maximum {{ room.max_guests }} guests{% if site.extra_person_charge %} + {{ site.extra_person_charge | rupee }} per extra person{% endif %}</p>
+            {% set extraCharge = room.extra_person_charge or site.extra_person_charge %}
+            <p class="pax">For {{ room.max_guests }} guests</p>
+            {% if extraCharge %}<p class="pax extra-person">Extra person: {{ extraCharge | rupee }} /night</p>{% endif %}
           </div>
           <a class="btn room-cta" href="https://wa.me/{{ site.whatsapp }}?text={{ ('Hi Misty Villas, I would like to enquire about the ' + room.name + '. Dates: ') | urlencode }}" target="_blank" rel="noopener">Enquire on WhatsApp</a>
         </div>
@@ -93,7 +95,7 @@ permalink: /
         </tbody>
       </table>
     </div>
-    <p class="rates-note">Rates are per room per night{% if site.extra_person_charge %}; each extra person is {{ site.extra_person_charge | rupee }}{% endif %}. Please call or WhatsApp to confirm availability.</p>
+    <p class="rates-note">Rates are per room per night; extra person charges vary by room (shown on each room above). Please call or WhatsApp to confirm availability.</p>
   </section>
 
   {% set tItems = testimonials.items %}
