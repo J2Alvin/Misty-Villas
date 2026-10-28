@@ -50,10 +50,30 @@
   }
 
   // ---------- Carousels ----------
-  const AUTO_MS = 5000;      // time each photo stays
+  const AUTO_MS = 3000;      // a new photo every 3 seconds
   const STAGGER_MS = 800;    // offset between neighbouring boxes
+  const SLIDE_MS = 900;      // how long the slide transition takes (higher = slower)
   const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let autoIndex = 0;
+  // Slower, eased slide than the browser's built-in smooth scroll.
+  const animateTo = (track, target) => {
+    if (reduceMotion) { track.scrollLeft = target; return; }
+    cancelAnimationFrame(track._anim);
+    const from = track.scrollLeft, dist = target - from;
+    if (Math.abs(dist) < 1) return;
+    const t0 = performance.now();
+    track.style.scrollSnapType = 'none';
+    const tick = (now) => {
+      const t = Math.min((now - t0) / SLIDE_MS, 1);
+      const e = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; // ease in-out
+      track.scrollLeft = from + dist * e;
+      if (t < 1) track._anim = requestAnimationFrame(tick);
+      else track.style.scrollSnapType = '';
+    };
+    track._anim = requestAnimationFrame(tick);
+  };
+  const stopAnim = (track) => { cancelAnimationFrame(track._anim); track.style.scrollSnapType = ''; };
+
   document.querySelectorAll('.carousel').forEach((carousel) => {
     const track = carousel.querySelector('.carousel-track');
     const imgs = Array.from(track.querySelectorAll('img'));
@@ -80,7 +100,12 @@
     count.className = 'car-count';
     count.textContent = '1 / ' + imgs.length;
 
-    const step = (dir) => track.scrollBy({ left: dir * track.clientWidth, behavior: 'smooth' });
+    const step = (dir) => {
+      const max = track.scrollWidth - track.clientWidth;
+      const cur = Math.round(track.scrollLeft / track.clientWidth) * track.clientWidth;
+      animateTo(track, Math.max(0, Math.min(max, cur + dir * track.clientWidth)));
+    };
+    track.addEventListener('touchstart', () => stopAnim(track), { passive: true });
     prev.addEventListener('click', () => step(-1));
     next.addEventListener('click', () => step(1));
     track.addEventListener('scroll', () => {
@@ -101,8 +126,8 @@
     const advance = () => {
       if (lightbox && !lightbox.hidden) return;
       const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
-      if (atEnd) track.scrollTo({ left: 0, behavior: 'smooth' });
-      else track.scrollBy({ left: track.clientWidth, behavior: 'smooth' });
+      const cur = Math.round(track.scrollLeft / track.clientWidth) * track.clientWidth;
+      animateTo(track, atEnd ? 0 : cur + track.clientWidth);
     };
     const stop = () => { clearTimeout(delayTimer); clearInterval(timer); timer = delayTimer = null; };
     const start = () => {
