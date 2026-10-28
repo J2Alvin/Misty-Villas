@@ -50,8 +50,8 @@
   }
 
   // ---------- Carousels ----------
-  const AUTO_MS = 3000;      // time each photo stays
-  const STAGGER_MS = 700;    // offset between neighbouring boxes
+  const AUTO_MS = 5000;      // time each photo stays
+  const STAGGER_MS = 800;    // offset between neighbouring boxes
   const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let autoIndex = 0;
   document.querySelectorAll('.carousel').forEach((carousel) => {
