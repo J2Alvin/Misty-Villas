@@ -1,5 +1,5 @@
 ---
-title: Things to do near Panchalimedu
+title: 5 Best Places to Visit in Kuttikanam, Kerala
 description: Peeru Hills, Paruthumpara, Ammachi Kottaram and Valanjam Waterfalls
   - the best places to visit near Misty Villas, Panchalimedu.
 date: 2026-10-25
