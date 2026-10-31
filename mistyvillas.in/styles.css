@@ -241,6 +241,7 @@ a { color: inherit; }
 .guide-compare { padding-left: 0; padding-right: 0; }
 .guide-compare .table-wrap { max-width: none; }
 .guide-compare tbody th { text-align: left; }
+.guide-verdict { font-weight: 500; color: var(--green); }
 
 .spot { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 2rem 0; }
 .spot-photos { display: grid; gap: 0.6rem; align-content: start; }

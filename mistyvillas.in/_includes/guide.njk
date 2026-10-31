@@ -81,6 +81,7 @@ layout: base.njk
           </tbody>
         </table>
       </div>
+      {% if comparison.note %}<p class="guide-verdict">{{ comparison.note }}</p>{% endif %}
     </section>
     {% endif %}
 

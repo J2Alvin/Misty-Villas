@@ -159,6 +159,7 @@ content:
         type: object
         fields:
           - { name: title, label: Table heading, type: string }
+          - { name: note, label: Short note under the table (optional), type: text }
           - name: columns
             label: Column headings (first is the row-label column, then one per place)
             type: string

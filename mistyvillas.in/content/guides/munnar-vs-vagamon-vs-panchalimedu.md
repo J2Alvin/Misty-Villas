@@ -35,6 +35,7 @@ spots:
         alt: "Rolling tea estate hills around Munnar"
 comparison:
   title: "Quick Comparison: Why Panchalimedu is Your Best Base"
+  note: "Short on time? Stay in Panchalimedu for quiet evenings and mountain views, and visit Vagamon and Munnar as day trips."
   columns:
     - "Feature"
     - "Panchalimedu & Kuttikkanam"
@@ -63,3 +64,5 @@ comparison:
         - "Large Commercial Hotels & City Inns"
 resort_promo: true
 ---
+
+Can't decide between Munnar, Vagamon and Panchalimedu? Here's a quick, honest comparison to help you pick the right base for your trip.
