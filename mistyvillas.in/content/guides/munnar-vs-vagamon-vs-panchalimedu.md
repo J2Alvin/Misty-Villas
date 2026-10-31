@@ -3,7 +3,7 @@ title: "Munnar vs Vagamon vs Panchalimedu: Best Place to Stay"
 description: "Comparing Munnar, Vagamon, and Panchalimedu? Skip the crowds and discover why Panchalimedu and Kuttikkanam offer the finest resorts, views, and peaceful stays in Kerala."
 date: 2026-10-31
 image: /images/hill-stations/cover-munnar-vagamon-panchalimedu.webp
-image_alt: "Clouds drifting through the Panchalimedu hills"
+image_alt: "Green tea hills and a winding road in the Kerala highlands"
 draft: false
 spots:
   - name: "Panchalimedu & Kuttikkanam: The Crown Jewel of Highland Serenity"
@@ -22,8 +22,8 @@ spots:
 
       While Vagamon offers fantastic open landscapes and adventure spots, its daytime popularity means high tourist footfall near key attractions. Staying in the quieter, more scenic Panchalimedu–Kuttikkanam belt allows you to enjoy Vagamon's top adventure sites by day while returning to a far more peaceful, comfortable, and scenic retreat in the evening.
     photos:
-      - image: /images/hill-stations/vagamon-hill-road.webp
-        alt: "Winding road over the green Vagamon hills"
+      - image: /images/hill-stations/vagamon-meadow-trees.webp
+        alt: "Tall trees over green hills and a cloudy sky near Vagamon"
   - name: "Munnar: The Commercial Heavyweight"
     text: >-
       Sitting at 1,600 meters, Munnar is Kerala's most famous tea-plantation hub, known for Eravikulam National Park, Mattupetty Dam, and sprawling commercial tea estates. It caters heavily to large tour groups, bus packages, and first-time commercial sightseeing itineraries.
@@ -31,8 +31,6 @@ spots:
 
       However, Munnar's global fame comes with significant drawbacks: bumper-to-bumper weekend traffic, crowded viewpoints, long queues, and heavily commercialized town centers. Travelers who prefer an intimate, peaceful mountain escape often skip the hectic streets of Munnar in favor of the tranquil, unspoiled charm of Panchalimedu and Kuttikkanam.
     photos:
-      - image: /images/hill-stations/munnar-tea-plantation.webp
-        alt: "Tea plantation slopes and a hill road near Munnar"
       - image: /images/hill-stations/munnar-tea-hills.webp
         alt: "Rolling tea estate hills around Munnar"
 resort_promo: true
