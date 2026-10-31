@@ -41,7 +41,7 @@ content:
           - { name: old_price, label: Old (strikethrough) price, type: number }
           - { name: price, label: Current price per night, type: number }
           - { name: max_guests, label: Guests included (shown as "For N guests"), type: number }
-          - { name: extra_person_charge, label: Extra person charge per night (Rs), type: number }
+          - { name: extra_person_charge, label: "Extra person charge per night (Rs). Enter 0 for no extra person; leave empty to use the default", type: number }
           - name: features
             label: Features
             type: string

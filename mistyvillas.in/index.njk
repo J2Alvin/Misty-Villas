@@ -74,9 +74,9 @@ permalink: /
               {% if room.old_price %}<s class="old-price">{{ room.old_price | rupee }}</s>{% endif %}
               <span class="current-price">{{ room.price | rupee }}</span><span class="per-day"> /day</span>
             </div>
-            {% set extraCharge = room.extra_person_charge or site.extra_person_charge %}
+            {% set extraCharge = room.extra_person_charge if room.extra_person_charge is number else site.extra_person_charge %}
             <p class="pax">For {{ room.max_guests }} guests</p>
-            {% if extraCharge %}<p class="pax extra-person">Extra person: {{ extraCharge | rupee }} /night</p>{% endif %}
+            {% if extraCharge %}<p class="pax extra-person">Extra person: {{ extraCharge | rupee }} /night</p>{% elif room.extra_person_charge is number %}<p class="pax extra-person">No extra person</p>{% endif %}
           </div>
           <a class="btn room-cta" href="https://wa.me/{{ site.whatsapp }}?text={{ ('Hi Misty Villas, I would like to enquire about the ' + room.name + '. Dates: ') | urlencode }}" target="_blank" rel="noopener">Enquire on WhatsApp</a>
         </div>

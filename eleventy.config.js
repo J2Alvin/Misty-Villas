@@ -14,8 +14,9 @@ function buildFaq(data) {
   const items = [...(data.faq || [])];
 
   const roomLines = rooms.map((r) => {
-    const ex = r.extra_person_charge || extra;
-    return `${r.name} ${rupee(r.price)} (for ${r.max_guests} guests${ex ? `, extra person ${rupee(ex)}` : ""})`;
+    const own = typeof r.extra_person_charge === "number";
+    const ex = own ? r.extra_person_charge : extra;
+    return `${r.name} ${rupee(r.price)} (for ${r.max_guests} guests${ex ? `, extra person ${rupee(ex)}` : own ? ", no extra person" : ""})`;
   });
   if (roomLines.length) {
     const low = Math.min(...rooms.map((r) => Number(r.price)).filter(Boolean));

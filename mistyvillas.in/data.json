@@ -128,6 +128,7 @@
       "old_price": 4000,
       "price": 2699,
       "max_guests": 2,
+      "extra_person_charge": 899,
       "photos": [
         {
           "image": "/images/rooms/G2/G2_room_2.jpeg"
@@ -151,6 +152,7 @@
       "old_price": 4200,
       "price": 2699,
       "max_guests": 2,
+      "extra_person_charge": 0,
       "photos": [
         {
           "image": "/images/rooms/F2/F2_room_1.jpeg"
@@ -174,6 +176,7 @@
       "old_price": 5500,
       "price": 3299,
       "max_guests": 2,
+      "extra_person_charge": 1099,
       "photos": [
         {
           "image": "/images/rooms/Cottage/cottage_room_1.jpeg"
