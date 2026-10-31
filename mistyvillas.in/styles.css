@@ -238,6 +238,9 @@ a { color: inherit; }
 
 .guide-wrap { max-width: 1000px; margin: 0 auto; padding: 1.25rem 1rem 1rem; }
 .guide-intro { padding-left: 0; padding-right: 0; }
+.guide-compare { padding-left: 0; padding-right: 0; }
+.guide-compare .table-wrap { max-width: none; }
+.guide-compare tbody th { text-align: left; }
 
 .spot { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 2rem 0; }
 .spot-photos { display: grid; gap: 0.6rem; align-content: start; }

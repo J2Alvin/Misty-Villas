@@ -154,4 +154,23 @@ content:
           - { name: link, label: Instagram video link, type: string }
           - { name: thumbnail, label: Video thumbnail (upload a screenshot/cover), type: image }
           - { name: caption, label: Caption, type: string }
+      - name: comparison
+        label: Comparison table (optional - shown after the last spot, before the Misty Villas block)
+        type: object
+        fields:
+          - { name: title, label: Table heading, type: string }
+          - name: columns
+            label: Column headings (first is the row-label column, then one per place)
+            type: string
+            list: true
+          - name: rows
+            label: Rows
+            type: object
+            list: true
+            fields:
+              - { name: label, label: Row label, type: string }
+              - name: cells
+                label: Cells (same order as the column headings after the first)
+                type: string
+                list: true
       - { name: body, label: Intro or extra text (optional), type: rich-text }

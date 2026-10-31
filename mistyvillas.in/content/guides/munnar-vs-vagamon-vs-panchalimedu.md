@@ -33,14 +33,33 @@ spots:
     photos:
       - image: /images/hill-stations/munnar-tea-hills.webp
         alt: "Rolling tea estate hills around Munnar"
+comparison:
+  title: "Quick Comparison: Why Panchalimedu is Your Best Base"
+  columns:
+    - "Feature"
+    - "Panchalimedu & Kuttikkanam"
+    - "Vagamon"
+    - "Munnar"
+  rows:
+    - label: "Vibe & Atmosphere"
+      cells:
+        - "Exclusive, Peaceful, Uncrowded"
+        - "Outdoor, Active, Meadow-Focused"
+        - "Commercial, Touristy, Heavy Traffic"
+    - label: "Scenery & Views"
+      cells:
+        - "360° Mountain Ridges & Dramatic Sunsets"
+        - "Rolling Grasslands & Pine Groves"
+        - "Sprawling Tea Plantations"
+    - label: "Crowd Level"
+      cells:
+        - "Low (Quiet & Relaxing Retreat)"
+        - "Moderate (Day-trip crowds)"
+        - "Very High (Tour buses & long queues)"
+    - label: "Best Stay Experience"
+      cells:
+        - "Boutique Resorts, Eco-Ledges, Pure Peace"
+        - "Mid-range stays & Homestays"
+        - "Large Commercial Hotels & City Inns"
 resort_promo: true
 ---
-
-## Quick Comparison: Why Panchalimedu is Your Best Base
-
-| Feature | Panchalimedu & Kuttikkanam | Vagamon | Munnar |
-| --- | --- | --- | --- |
-| **Vibe & Atmosphere** | Exclusive, Peaceful, Uncrowded | Outdoor, Active, Meadow-Focused | Commercial, Touristy, Heavy Traffic |
-| **Scenery & Views** | 360° Mountain Ridges & Dramatic Sunsets | Rolling Grasslands & Pine Groves | Sprawling Tea Plantations |
-| **Crowd Level** | Low (Quiet & Relaxing Retreat) | Moderate (Day-trip crowds) | Very High (Tour buses & long queues) |
-| **Best Stay Experience** | Boutique Resorts, Eco-Ledges, Pure Peace | Mid-range stays & Homestays | Large Commercial Hotels & City Inns |
