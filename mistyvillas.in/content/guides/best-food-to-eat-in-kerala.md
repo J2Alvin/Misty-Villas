@@ -41,7 +41,7 @@ spots:
       The accompanying beef roast features tender meat slow-cooked with ginger, garlic, shallots, cracked black pepper, and crunchy toasted coconut slices (kothu thenga). This peppery, caramelized combination is a must-try evening meal when returning to your hotel after sightseeing in Kuttikkanam.
     photos:
       - image: /images/kerala-food/kerala-parotta.webp
-        alt: "Flaky Kerala parotta with a spicy meat curry"
+        alt: "Kerala parotta with beef ularthiyathu on a banana leaf"
   - name: "Karimeen Pollichathu: Backwater & Hill-Resort Specialty"
     text: >-
       Karimeen Pollichathu is Kerala's signature seafood delicacy, featuring Pearl Spot fish caught fresh from inland backwaters and lakes. The fish is marinated in a pungent blend of Kashmiri red chili, turmeric, and lime juice, then pan-seared to seal in its tender, sweet flavor.
